@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useLocation, Routes, Route } from 'react-router-dom';
-import { getMovieDetails, getImageUrl } from '../api';
-import MovieCast from '../components/MovieCast';
-import MovieReviews from '../components/MovieReviews';
+import { getMovieDetails, getImageUrl } from '../../api';
+import MovieCast from '../../components/MovieCast';
+import MovieReviews from '../../components/MovieReviews';
+import styles from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
@@ -17,17 +18,17 @@ const MovieDetailsPage = () => {
     if (!movie) return null;
   
     return (
-      <div>
-        <Link to={backLink}>Go back</Link>
+      <div className={styles.movieDetailsObj}>
+        <Link className={styles.movieDetailsNav} to={backLink}>Go back</Link>
         <h1>{movie.title}</h1>
-        <p>{movie.overview}</p>
-        <img
+        <p className={styles.movieDetailsDescr}>{movie.overview}</p>
+        <img className={styles.movieDetailsImg}
           src={getImageUrl(movie.poster_path)}
           alt={movie.title}
         />
-        <nav>
-          <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-          <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+        <nav className={styles.movieDetailsNavButtom}>
+          <Link className={styles.movieDetailsNav} to={`/movies/${movieId}/cast`}>Cast</Link>
+          <Link className={styles.movieDetailsNav} to={`/movies/${movieId}/reviews`}>Reviews</Link>
         </nav>
         <Routes>
           <Route path="cast" element={<MovieCast />} />

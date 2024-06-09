@@ -1,0 +1,12 @@
+.notFindElem {
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+
+
+.notFindLink {
+background-color: rgba(128, 128, 0, 0.593);
+padding: 8px;
+border-radius: 8px;
+}

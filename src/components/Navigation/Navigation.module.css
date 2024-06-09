@@ -1,0 +1,12 @@
+.navigateList {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+
+.navigate {
+    border-radius: 6px;
+    background-color: olive;
+    padding: 8px;
+}

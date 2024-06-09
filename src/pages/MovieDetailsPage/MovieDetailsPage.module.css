@@ -1,0 +1,31 @@
+.movieDetailsObj {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.movieDetailsDescr {
+    /* background-color: rgba(195, 193, 193, 0.364); */
+    border-radius: 8px;
+    background: linear-gradient(180deg,
+                 rgba(251, 185, 115, 0.250) 40%, 
+                 rgba(249, 164, 103, 0.201) 40%, 
+                 rgba(246, 152, 101, 0.101) 100%);
+                 color: rgb(128, 128, 0, 1);
+}
+
+.movieDetailsNav {
+    background-color: rgb(128, 128, 0, 0.7);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.movieDetailsImg {
+    border-radius: 8px;
+}
+
+.movieDetailsNavButtom {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+    justify-content: center;
+}
