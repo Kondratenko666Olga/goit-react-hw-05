@@ -1,27 +1,31 @@
-import { useState } from 'react';
-import { searchMovies } from '../../api';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { searchMovies } from '../../api'; // Імпорт з правильним шляхом
 import MovieList from '../../components/MovieList';
-import styles from './MoviesPage.module.css';
+import styles from './MoviesPage.module.css'; // Додавання стилів
 
 const MoviesPage = () => {
-  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') || '';
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    searchMovies(query).then(data => setMovies(data.results));
+  useEffect(() => {
+    if (query) {
+      searchMovies(query).then((data) => setMovies(data.results));
+    }
+  }, [query]);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const inputValue = form.elements.query.value;
+    setSearchParams({ query: inputValue });
   };
 
   return (
     <div className={styles.searchMovies}>
-      <h1>Search Movies</h1>
-      <form className={styles.searchMoviesForm} onSubmit={handleSearch}>
-        <input 
-          type="text" 
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for a movie..."
-        />
+      <form onSubmit={handleSearch} className={styles.searchMoviesForm}>
+        <input type="text" name="query" defaultValue={query} />
         <button type="submit">Search</button>
       </form>
       <MovieList movies={movies} />

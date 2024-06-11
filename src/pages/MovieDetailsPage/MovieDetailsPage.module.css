@@ -14,9 +14,17 @@
 }
 
 .movieDetailsNav {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.movieDetailsNavLink {
     background-color: rgb(128, 128, 0, 0.7);
     padding: 8px;
     border-radius: 8px;
+    min-width: 100px;
 }
 
 .movieDetailsImg {

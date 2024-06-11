@@ -9,4 +9,6 @@
     border-radius: 6px;
     background-color: olive;
     padding: 8px;
+    min-width: 100px;
+    text-align: center;
 }
